@@ -8,7 +8,7 @@ import java.io.Serializable;
 
 /**
  * base request body
- * @param <T>
+ * @param <T>   request data class
  * @author binchao
  */
 @Data

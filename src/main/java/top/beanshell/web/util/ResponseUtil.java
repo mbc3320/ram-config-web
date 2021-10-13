@@ -19,9 +19,8 @@ public final class ResponseUtil {
 
     /**
      * json message response
-     * @param response
-     * @param result
-     * @throws IOException
+     * @param response        servlet response
+     * @param result          base response instance
      */
     public static void responseJson(HttpServletResponse response, BaseResponse result) {
         PrintWriter out = null;

@@ -30,10 +30,10 @@ public class GlobalExceptionHandler {
 
     /**
      * unknown error，ex：500
-     * @param req
-     * @param e
-     * @return
-     * @throws Exception
+     * @param req   servlet request
+     * @param e     exception
+     * @return      baseResponse  with unknown error
+     * @throws Exception any runtime exception
      */
     @ExceptionHandler(value = Exception.class)
     @ResponseBody
@@ -56,9 +56,9 @@ public class GlobalExceptionHandler {
 
     /**
      * api not found 404
-     * @param req
-     * @param e
-     * @return
+     * @param req     servlet request
+     * @param e       exception
+     * @return        baseResponse  with  api not found error
      */
     @ExceptionHandler(value = NoHandlerFoundException.class)
     @ResponseBody
@@ -70,9 +70,9 @@ public class GlobalExceptionHandler {
 
     /**
      * parameter binding exception
-     * @param req
-     * @param e
-     * @return
+     * @param req    servlet request
+     * @param e      exception
+     * @return       baseResponse   with  parameter error
      */
     @ExceptionHandler(value = BindException.class)
     @ResponseBody
@@ -83,8 +83,8 @@ public class GlobalExceptionHandler {
 
     /**
      * parameter invalid exception
-     * @param e
-     * @return
+     * @param e     exception
+     * @return      baseResponse  with parameter error
      */
     @ExceptionHandler(value = MethodArgumentNotValidException.class)
     @ResponseBody
@@ -96,9 +96,9 @@ public class GlobalExceptionHandler {
 
     /**
      * custom exception
-     * @param req
-     * @param e
-     * @return
+     * @param req   servlet request
+     * @param e     exception
+     * @return      baseResponse  with custom status code error
      */
     @ExceptionHandler(value = BaseException.class)
     @ResponseBody
@@ -110,8 +110,8 @@ public class GlobalExceptionHandler {
 
     /**
      * request method unsupport exception
-     * @param e
-     * @return
+     * @param e   exception
+     * @return    baseResponse with method not support error
      */
     @ExceptionHandler(value = HttpRequestMethodNotSupportedException.class)
     @ResponseBody
@@ -123,7 +123,7 @@ public class GlobalExceptionHandler {
     /**
      * parameter mismatch
      * @param bindingResult
-     * @return
+     * @return  error msg
      */
     private String handleArgumentErrorMsg(BindingResult bindingResult) {
         List<FieldError> errors = bindingResult.getFieldErrors();
@@ -140,7 +140,7 @@ public class GlobalExceptionHandler {
     /**
      * parameter mismatch
      * @param bindingResult
-     * @return
+     * @return   baseResponse
      */
     private BaseResponse returnArgumentErrorMsg(BindingResult bindingResult) {
         String errorMsg = handleArgumentErrorMsg(bindingResult);

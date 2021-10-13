@@ -48,18 +48,34 @@ public class BaseResponse<T> implements Serializable {
         this.data = data;
     }
 
+    /**
+     * set failed status code
+     */
     public void setFailed() {
         this.setStatus(GlobalStatusCode.FAILED);
     }
+
+    /**
+     * set success status code
+     */
     public void setSuccess() {
         this.setStatus(GlobalStatusCode.SUCCESS);
     }
 
+    /**
+     * custom status code
+     * @param status  custom status code
+     */
     public void setStatus(EnumCode status) {
         this.code = status.getCode();
         this.msg = status.getText();
     }
 
+    /**
+     *  custom status code with custom msg
+     * @param status   custom status code
+     * @param message  custom msg
+     */
     public void setStatus(EnumCode status, String message) {
         this.code = status.getCode();
         if (null != status && StringUtils.hasText(message)) {

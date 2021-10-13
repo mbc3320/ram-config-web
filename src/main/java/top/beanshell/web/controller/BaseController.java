@@ -13,8 +13,8 @@ public class BaseController {
     /**
      *  base response
      *  just return success or failed
-     * @param result
-     * @return
+     * @param result  handle result
+     * @return        baseResponse with success or failed
      */
     protected BaseResponse baseResponse(boolean result) {
         if (result) {
@@ -26,8 +26,8 @@ public class BaseController {
 
     /**
      * base response for success status with data
-     * @param data
-     * @return
+     * @param data   biz data
+     * @return       baseResponse with success status and biz data
      */
     protected BaseResponse successResponse(Object data) {
         BaseResponse response = new BaseResponse();
@@ -37,8 +37,8 @@ public class BaseController {
 
     /**
      * base response for failed status with data;
-     * @param data
-     * @return
+     * @param data   biz data or error msg
+     * @return       baseResponse with failed status and biz data
      */
     protected BaseResponse failedResponse(Object data) {
         BaseResponse response = new BaseResponse();
@@ -49,8 +49,8 @@ public class BaseController {
 
     /**
      * base response for custom status code
-     * @param status
-     * @return
+     * @param status    status code
+     * @return          baseResponse with custom status code
      */
     protected BaseResponse statusResponse(EnumCode status) {
         return new BaseResponse(status);

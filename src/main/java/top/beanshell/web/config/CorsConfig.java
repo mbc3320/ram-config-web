@@ -24,7 +24,7 @@ public class CorsConfig {
 
     /**
      * cors filter
-     * @return
+     * @return  cors filter instance
      */
     @Bean
     public CorsFilter corsFilter() {
