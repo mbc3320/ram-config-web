@@ -89,7 +89,7 @@ public class GlobalExceptionHandler {
     @ExceptionHandler(value = MethodArgumentNotValidException.class)
     @ResponseBody
     public BaseResponse argumentNotValidErrorHandler(MethodArgumentNotValidException e) {
-        log.debug("argumentNotValid: {}", e.getMessage(), e);
+        log.debug("argumentNotValid: {}", e.getMessage());
         return returnArgumentErrorMsg(e.getBindingResult());
     }
 

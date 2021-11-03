@@ -15,6 +15,6 @@ public class PrimaryKeyRequest implements Serializable {
     /**
      * id
      */
-    @NotNull(message = "id必填")
+    @NotNull(message = "{i18n.request.valid.id}")
     private Long id;
 }
