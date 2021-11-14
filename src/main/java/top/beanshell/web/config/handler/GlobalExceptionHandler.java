@@ -1,6 +1,7 @@
 package top.beanshell.web.config.handler;
 
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.core.annotation.Order;
 import org.springframework.http.converter.HttpMessageNotReadableException;
 import org.springframework.validation.BindException;
 import org.springframework.validation.BindingResult;
@@ -25,6 +26,7 @@ import java.util.List;
  * @author binchao
  */
 @ControllerAdvice
+@Order(4)
 @Slf4j
 public class GlobalExceptionHandler {
 
@@ -33,11 +35,10 @@ public class GlobalExceptionHandler {
      * @param req   servlet request
      * @param e     exception
      * @return      baseResponse  with unknown error
-     * @throws Exception any runtime exception
      */
     @ExceptionHandler(value = Exception.class)
     @ResponseBody
-    public BaseResponse defaultErrorHandler(HttpServletRequest req, Exception e) throws Exception {
+    public BaseResponse defaultErrorHandler(HttpServletRequest req, Exception e) {
         BaseResponse r = new BaseResponse();
         if (e instanceof MethodArgumentTypeMismatchException) {
             log.error("Parameter error: {}", e.getMessage(), e);

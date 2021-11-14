@@ -36,9 +36,25 @@ public class CorsConfig {
             for (String domain : domains) {
                 config.addAllowedOrigin(domain);
             }
+        } else {
+            config.addAllowedOrigin("*");
         }
-        config.addAllowedHeader("*");
-        config.addAllowedMethod("*");
+        if (StringUtils.hasText(corsProperties.getAllowedHeader())) {
+            String[] headers = corsProperties.getAllowedHeader().split(";");
+            for (String header : headers) {
+                config.addAllowedHeader(header);
+            }
+        } else {
+            config.addAllowedHeader("*");
+        }
+        if (StringUtils.hasText(corsProperties.getAllowedMethod())) {
+            String[] methods = corsProperties.getAllowedMethod().split(";");
+            for (String method : methods) {
+                config.addAllowedMethod(method);
+            }
+        } else {
+            config.addAllowedMethod("*");
+        }
         source.registerCorsConfiguration(corsProperties.getPath(), config);
         return new CorsFilter(source);
     }

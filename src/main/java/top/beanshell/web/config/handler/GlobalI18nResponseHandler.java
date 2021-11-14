@@ -3,6 +3,7 @@ package top.beanshell.web.config.handler;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.MethodParameter;
+import org.springframework.core.annotation.Order;
 import org.springframework.http.MediaType;
 import org.springframework.http.converter.HttpMessageConverter;
 import org.springframework.http.server.ServerHttpRequest;
@@ -17,6 +18,7 @@ import top.beanshell.web.vo.BaseResponse;
  * @author binchao
  */
 @RestControllerAdvice
+@Order(5)
 @Slf4j
 public class GlobalI18nResponseHandler implements ResponseBodyAdvice<BaseResponse> {
 
