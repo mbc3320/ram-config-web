@@ -46,6 +46,7 @@ public class GlobalExceptionHandler {
         } else if (e instanceof IllegalArgumentException) {
             log.error("Parameter error: {}", e.getMessage(), e);
             r.setStatus(GlobalStatusCode.INVALID_PARAMETER);
+            r.setData(e.getMessage());
         } else if (e instanceof HttpMessageNotReadableException) {
             r.setStatus(GlobalStatusCode.MESSAGE_BODY_INVALID);
         } else {
