@@ -22,4 +22,14 @@ public class CorsProperties {
      * context
      */
     private String path;
+
+    /**
+     * allow header
+     */
+    private String allowedHeader;
+
+    /**
+     * allow method
+     */
+    private String allowedMethod;
 }

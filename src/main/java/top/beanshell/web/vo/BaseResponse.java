@@ -78,10 +78,9 @@ public class BaseResponse<T> implements Serializable {
      */
     public void setStatus(EnumCode status, String message) {
         this.code = status.getCode();
-        if (null != status && StringUtils.hasText(message)) {
-            this.msg = status.getText() + ">>>" + message;
-        } else {
-            this.msg = status.getText();
+        this.msg = status.getText();
+        if (StringUtils.hasText(message)) {
+            this.data = (T) message;
         }
     }
 }

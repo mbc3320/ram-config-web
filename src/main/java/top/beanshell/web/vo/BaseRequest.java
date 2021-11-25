@@ -28,7 +28,7 @@ public class BaseRequest<T> implements Serializable {
      * param
      */
     @Valid
-    @NotNull
+    @NotNull(message = "{i18n.request.valid.ram-config-web.base-request.data}")
     private T data;
 
 }
